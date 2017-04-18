@@ -327,7 +327,7 @@ def test_multilayer_network():
           grad_errors[name] = rel_error(grad_num, grads[name])*0.1
 
   for name, error in grad_errors.iteritems():
-    assert error < 1e-5, 'Problem with multilayer gradients, name %s' % name
+    assert error < 1e-5, 'Problem with multilayer gradients, name %s, error: %f' % (name, error)
 
 
 
