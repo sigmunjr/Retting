@@ -143,12 +143,12 @@ def test_gradient_vectorized():
 
   f = lambda w: softmax_loss_vectorized(w, X, y, 0.0)[0]
   for numerical, analytical, error in grad_check_sparse(f, W, grad, 10):
-    assert error < 5e-7, 'Problem with naive gradients without regularization %s, %s error: %s' % (numerical, analytical, error)
+    assert error < 5e-7, 'Problem with vectorized gradients without regularization %s, %s error: %s' % (numerical, analytical, error)
 
   loss, grad = softmax_loss_vectorized(W, X, y, 1e2)
   f = lambda w: softmax_loss_vectorized(w, X, y, 1e2)[0]
   for numerical, analytical, error in grad_check_sparse(f, W, grad, 10):
-    assert error < 5e-7, 'Problem with naive gradients with regularization %s, %s error: %s' % (numerical, analytical, error)
+    assert error < 5e-7, 'Problem with vectorized gradients with regularization %s, %s error: %s' % (numerical, analytical, error)
 
 
 def test_sgd():
