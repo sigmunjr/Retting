@@ -29,6 +29,10 @@ def get_last_deliveries(deliveries_root):
       last_delivery = sorted(deliveries)[-1:]
       dirs[:] = last_delivery
       last_deliveries += [os.path.join(root, last_delivery[0])]
+    else:
+      zipfiles = fnmatch.filter(files, '*.zip')
+      last_deliveries += [root]
+
   return last_deliveries
 
 def convert_notebooks_to_html(deliveries):
