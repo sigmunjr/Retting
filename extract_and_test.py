@@ -75,7 +75,7 @@ def main():
   deliveries = get_last_deliveries(deliveries_root='/home/sigmund/Utvikling/Retting/')
   deliveries_extract = extract(deliveries)
   add_dataset(deliveries_extract, dataset_path='/home/sigmund/Utvikling/Phd/INF5860_Oblig1_solutions/code/datasets/')
-  add_tests(deliveries_extract, tests_path='/home/sigmund/Utvikling/Phd/INF5860_Oblig1_solutions/')
+  add_tests(deliveries_extract, tests_path='/tests/')
 
   convert_notebooks_to_html(deliveries_extract)
   run_nose_tests(deliveries_extract)
