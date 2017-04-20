@@ -64,8 +64,10 @@ def open_browser(deliveries, python_file_depth=4, text_editor='atom'):
   import webbrowser, itertools
   student_id_pattern = re.compile('.*\\(groupid\\=(\\d+)\\).*')
   for root in deliveries:
-    student_id = student_id_pattern.match(root).group(1)
-    webbrowser.open_new('https://devilry.ifi.uio.no/devilry_examiner/singlegroupoverview/'+student_id)
+    matches = student_id_pattern.match(root)
+    if matches is not None:
+      student_id = matches.group(1)
+      webbrowser.open_new('https://devilry.ifi.uio.no/devilry_examiner/singlegroupoverview/'+student_id)
     html_files = glob.glob(root+'/*.html')
     for h in html_files:
       webbrowser.open_new_tab(h)
